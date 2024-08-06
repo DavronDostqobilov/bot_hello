@@ -14,8 +14,9 @@ def get_text_from_update(update):
     Returns:
         str: text from update
     """
-    return update['result'][-1]['message']['text']
+    return update['message']['text']
 # Get updates
 response = requests.get(URL)
 data = response.json()
-print(get_text_from_update(data))
+result=data['result'][-1]
+print(get_text_from_update(result))
